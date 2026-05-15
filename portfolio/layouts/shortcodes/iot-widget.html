@@ -1,0 +1,22 @@
+{{/* {{< iot-widget title="Node #1" >}} Key | Value \n ... {{< /iot-widget >}} */}}
+{{ $title := .Get "title" | default "Hardware Status" }}
+
+<div class="iot-widget" role="region" aria-label="{{ $title }}">
+  <div class="iot-widget-head">
+    <span class="iot-widget-pulse" aria-hidden="true"></span>
+    {{ $title }}
+  </div>
+  {{ $inner := .Inner }}
+  {{ $inner = replace $inner "\r\n" "\n" }}
+  {{ $inner = replace $inner "\r" "\n" }}
+  {{ $lines := findRE "(?m)^.+$" $inner }}
+  {{ range $lines }}
+    {{ $parts := findRE "[^|]+" . }}
+    {{ if ge (len $parts) 2 }}
+    <div class="iot-widget-row">
+      <span>{{ trim (index $parts 0) " \t" }}</span>
+      <span>{{ trim (index $parts 1) " \t" }}</span>
+    </div>
+    {{ end }}
+  {{ end }}
+</div>

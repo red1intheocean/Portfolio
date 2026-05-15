@@ -1,0 +1,180 @@
+{{ define "main" }}
+
+{{/* HERO — no background, wallpaper shows through */}}
+<section class="hero" id="hero">
+  <div class="container hero-inner">
+
+    <p class="hero-kicker">
+      <span class="hero-kicker-dot" aria-hidden="true"></span>
+      INPT Rabat &nbsp;·&nbsp; Embedded Systems / SESNUM
+    </p>
+
+    <h1 class="hero-name"><span>Redouane<br>Meriche</span></h1>
+
+    <p class="hero-role">
+      Embedded systems engineer. Firmware, hardware registers,
+      and IoT pipelines from sensor to dashboard.
+    </p>
+
+    <div class="hero-actions">
+      <a href="/projects/" class="btn btn--primary">View projects</a>
+      <a href="{{ .Site.Params.social.github }}" class="btn" target="_blank" rel="noopener">GitHub ↗</a>
+      <a href="mailto:{{ .Site.Params.social.email }}" class="btn">Contact</a>
+    </div>
+
+  </div>
+</section>
+
+{{/* ABOUT */}}
+<section class="section" id="about">
+  <div class="container">
+    <p class="section-label">about</p>
+
+    <div class="terminal" style="max-width:640px;" role="region" aria-label="About terminal">
+      <div class="terminal-bar">
+        <span class="dot dot--red"></span>
+        <span class="dot dot--yellow"></span>
+        <span class="dot dot--green"></span>
+        <span class="terminal-title">{{ .Site.Params.terminal.user }}@{{ .Site.Params.terminal.host }} — bash</span>
+      </div>
+      <div class="terminal-body">
+        <div class="t-line">
+          <span class="t-prompt">{{ .Site.Params.terminal.user }}@{{ .Site.Params.terminal.host }}:~$</span>
+          <span class="t-cmd">cat profile.json</span>
+        </div>
+        <div style="margin:0.6rem 0 0.2rem;color:var(--fg-4);">{</div>
+        <div style="padding-left:1.5rem;">
+          <div class="t-line"><span class="t-key">"name"</span><span class="t-punct">:</span>&nbsp;<span class="t-str">"Redouane Meriche"</span><span class="t-punct">,</span></div>
+          <div class="t-line"><span class="t-key">"institution"</span><span class="t-punct">:</span>&nbsp;<span class="t-str">"INPT Rabat — SESNUM"</span><span class="t-punct">,</span></div>
+          <div class="t-line"><span class="t-key">"focus"</span><span class="t-punct">:</span>&nbsp;<span class="t-punct">[</span><span class="t-str">"Embedded C"</span><span class="t-punct">,</span> <span class="t-str">"STM32"</span><span class="t-punct">,</span> <span class="t-str">"IoT"</span><span class="t-punct">,</span> <span class="t-str">"Real-Time"</span><span class="t-punct">],</span></div>
+          <div class="t-line"><span class="t-key">"status"</span><span class="t-punct">:</span>&nbsp;<span class="t-str">"actively building"</span></div>
+        </div>
+        <div style="color:var(--fg-4);">}</div>
+        <div class="t-line" style="margin-top:1rem;">
+          <span class="t-prompt">{{ .Site.Params.terminal.user }}@{{ .Site.Params.terminal.host }}:~$</span>
+          <span class="t-cursor"></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{{/* SKILLS */}}
+<section class="section" id="skills">
+  <div class="container">
+    <p class="section-label">skills</p>
+    <div class="skills">
+      <div class="skill-group">
+        <div class="skill-group-name">Low-Level</div>
+        <div class="skill-group-list">
+          <span class="skill-item">C / Embedded C</span>
+          <span class="skill-item">Assembly x86 / ARM</span>
+          <span class="skill-item">Hardware Registers</span>
+          <span class="skill-item">Memory-Mapped I/O</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <div class="skill-group-name">Microcontrollers</div>
+        <div class="skill-group-list">
+          <span class="skill-item">STM32 (HAL / LL)</span>
+          <span class="skill-item">PIC18F</span>
+          <span class="skill-item">UART · SPI · I2C</span>
+          <span class="skill-item">DMA · Timers · ADC</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <div class="skill-group-name">IoT / Full-Stack</div>
+        <div class="skill-group-list">
+          <span class="skill-item">MQTT</span>
+          <span class="skill-item">Real-Time Monitoring</span>
+          <span class="skill-item">Web Development</span>
+          <span class="skill-item">InfluxDB · Grafana</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <div class="skill-group-name">Tooling</div>
+        <div class="skill-group-list">
+          <span class="skill-item">GDB · OpenOCD</span>
+          <span class="skill-item">STM32CubeIDE</span>
+          <span class="skill-item">Oscilloscope / Logic</span>
+          <span class="skill-item">Git · Linux</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{{/* PROJECTS */}}
+<section class="section" id="projects">
+  <div class="container">
+    <p class="section-label">projects</p>
+    <div class="explorer">
+      <aside class="explorer-tree" aria-label="Project list">
+        <div class="tree-header">Explorer</div>
+        <div class="tree-item is-active" data-target="proj-almidan" role="button" tabindex="0">
+          <span class="tree-icon">📱</span>al-midan.dart<span class="tree-ext">mobile</span>
+        </div>
+        <div class="tree-item" data-target="proj-agri" role="button" tabindex="0">
+          <span class="tree-icon">🌱</span>agri-monitor.c<span class="tree-ext">iot</span>
+        </div>
+      </aside>
+      <div class="explorer-pane" aria-live="polite">
+        <article class="proj is-active" id="proj-almidan">
+          <div class="proj-meta">dart · flutter · mobile</div>
+          <h2 class="proj-title">Al-Midan</h2>
+          <p class="proj-desc">Mobile application for coordinating team sports among Moroccan university students. Real-time match scheduling, campus field maps, and live player counts via Firestore.</p>
+          <div class="proj-tags">
+            <span class="tag">Flutter</span><span class="tag">Dart</span><span class="tag">Firebase</span><span class="tag">Riverpod</span><span class="tag">Android / iOS</span>
+          </div>
+          <div class="proj-links">
+            <a href="/projects/al-midan/" class="btn btn--primary">Read more</a>
+            <a href="{{ $.Site.Params.social.github }}" class="btn" target="_blank" rel="noopener">GitHub ↗</a>
+          </div>
+        </article>
+        <article class="proj" id="proj-agri">
+          <div class="proj-meta">c · python · iot · stm32</div>
+          <h2 class="proj-title">Agricultural Monitoring System</h2>
+          <p class="proj-desc">Full-stack IoT pipeline: STM32 reads sensors over ADC and I2C, pushes data via MQTT, a Python backend writes to InfluxDB, and a live dashboard visualizes field conditions.</p>
+          <div class="proj-tags">
+            <span class="tag">C</span><span class="tag">STM32</span><span class="tag">Python</span><span class="tag">MQTT</span><span class="tag">InfluxDB</span><span class="tag">Real-Time</span>
+          </div>
+          <div class="proj-links">
+            <a href="/projects/agri-monitor/" class="btn btn--primary">Read more</a>
+            <a href="{{ $.Site.Params.social.github }}" class="btn" target="_blank" rel="noopener">GitHub ↗</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>
+
+{{/* OFF-DUTY */}}
+<section class="section" id="off-duty">
+  <div class="container">
+    <p class="section-label">off_duty</p>
+    <div class="interests">
+      <div class="interest">
+        <div class="interest-icon">🥋</div>
+        <div class="interest-name">MMA / BJJ</div>
+        <div class="interest-desc">Ground game. Systematic pressure. Same mental model as debugging.</div>
+      </div>
+      <div class="interest">
+        <div class="interest-icon">🏎️</div>
+        <div class="interest-name">Automotive</div>
+        <div class="interest-desc">High-performance vehicle dynamics. Engines are embedded systems with more torque.</div>
+      </div>
+      <div class="interest">
+        <div class="interest-icon">🌊</div>
+        <div class="interest-name">Exploration</div>
+        <div class="interest-desc">Finding signal in noise — RF spectra, open landscapes, both.</div>
+      </div>
+      <div class="interest">
+        <div class="interest-icon">📡</div>
+        <div class="interest-name">Radio / RF</div>
+        <div class="interest-desc">SDR, antenna theory, the invisible physical layer.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{{ end }}

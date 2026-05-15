@@ -1,0 +1,17 @@
+{{/* {{< hw-specs >}} Key | Value \n ... {{< /hw-specs >}} */}}
+<aside class="hw-specs" aria-label="Hardware specifications">
+  <div class="hw-specs-head">System Requirements</div>
+  {{ $inner := .Inner }}
+  {{ $inner = replace $inner "\r\n" "\n" }}
+  {{ $inner = replace $inner "\r" "\n" }}
+  {{ $lines := findRE "(?m)^.+$" $inner }}
+  {{ range $lines }}
+    {{ $parts := findRE "[^|]+" . }}
+    {{ if ge (len $parts) 2 }}
+    <div class="hw-specs-row">
+      <span class="hw-specs-key">{{ trim (index $parts 0) " \t" }}</span>
+      <span class="hw-specs-val">{{ trim (index $parts 1) " \t" }}</span>
+    </div>
+    {{ end }}
+  {{ end }}
+</aside>

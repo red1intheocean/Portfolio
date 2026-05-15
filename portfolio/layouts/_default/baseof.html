@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{ .Site.Params.description }}{{ end }}" />
+  <title>{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} — {{ .Site.Params.author }}{{ end }}</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>" />
+  <link rel="stylesheet" href="/css/main.css" />
+</head>
+<body>
+
+  {{/* Fixed wallpaper — z-index:-1, blurred by scroll JS below */}}
+  <div id="wallpaper" aria-hidden="true"></div>
+
+  <nav class="nav" role="navigation" aria-label="Main navigation">
+    <a class="nav-logo" href="/">{{ .Site.Params.author }}</a>
+    <ul class="nav-links">
+      {{ range .Site.Menus.main }}
+      <li><a href="{{ .URL }}">{{ .Name }}</a></li>
+      {{ end }}
+    </ul>
+    <label class="nav-toggle" title="Toggle theme" aria-label="Toggle light/dark mode">
+      <span class="toggle-icon">◐</span>
+      <span class="toggle">
+        <input type="checkbox" id="themeToggle" />
+        <span class="toggle-track"></span>
+        <span class="toggle-thumb"></span>
+      </span>
+    </label>
+  </nav>
+
+  <main id="main">{{ block "main" . }}{{ end }}</main>
+
+  <footer class="footer container">
+    <span>{{ .Site.Params.author }} · {{ .Site.Params.institution }}</span>
+    <span>
+      <a href="{{ .Site.Params.social.github }}" target="_blank" rel="noopener">GitHub</a>
+      {{ with .Site.Params.social.email }} · <a href="mailto:{{ . }}">{{ . }}</a>{{ end }}
+    </span>
+  </footer>
+
+  {{/* ── Theme toggle ── */}}
+  <script>
+  (function () {
+    var toggle = document.getElementById('themeToggle');
+    var html   = document.documentElement;
+    var stored = localStorage.getItem('theme');
+    var sys    = window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+    var theme  = stored || sys;
+    html.setAttribute('data-theme', theme);
+    toggle.checked = (theme === 'light');
+    toggle.addEventListener('change', function () {
+      var t = toggle.checked ? 'light' : 'dark';
+      html.setAttribute('data-theme', t);
+      localStorage.setItem('theme', t);
+    });
+  })();
+  </script>
+
+  {{/* ── UI interactions ── */}}
+  <script>
+  document.addEventListener('DOMContentLoaded', function () {
+    // File explorer switching
+    document.querySelectorAll('.tree-item[data-target]').forEach(function (item) {
+      function activate() {
+        var explorer = item.closest('.explorer');
+        explorer.querySelectorAll('.tree-item').forEach(function (i) { i.classList.remove('is-active'); });
+        explorer.querySelectorAll('.proj').forEach(function (p) { p.classList.remove('is-active'); });
+        item.classList.add('is-active');
+        var pane = document.getElementById(item.dataset.target);
+        if (pane) pane.classList.add('is-active');
+      }
+      item.addEventListener('click', activate);
+      item.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); activate(); }
+      });
+    });
+
+    // Copy to clipboard
+    document.querySelectorAll('.codeblock-copy').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var pre = btn.closest('.codeblock').querySelector('pre');
+        if (!pre) return;
+        navigator.clipboard.writeText(pre.innerText).then(function () {
+          btn.textContent = 'copied';
+          btn.classList.add('is-copied');
+          setTimeout(function () { btn.textContent = 'copy'; btn.classList.remove('is-copied'); }, 2000);
+        });
+      });
+    });
+  });
+  </script>
+
+  {{ block "scripts" . }}{{ end }}
+</body>
+</html>

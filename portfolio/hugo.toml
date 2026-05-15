@@ -1,0 +1,53 @@
+baseURL       = "https://redouane-meriche.dev/"
+locale        = "en-us"
+title         = "Redouane Meriche"
+enableRobotsTXT = true
+pygmentsUseClasses = true
+pygmentsCodeFences = true
+
+[markup]
+  [markup.highlight]
+    style       = "dracula"
+    lineNos     = false
+    codeFences  = true
+    guessSyntax = true
+    tabWidth    = 4
+  [markup.goldmark.renderer]
+    unsafe = true
+
+[params]
+  author      = "Redouane Meriche"
+  institution = "INPT Rabat: Embedded Systems & Software Engineering"
+  description = "Embedded systems engineer. Low-level code, real-time systems, IoT."
+  avatar      = "/img/avatar.png"
+
+  [params.github]
+    username = "redouane-meriche"
+    apiBase  = "https://api.github.com"
+
+  [params.terminal]
+    user = "redouane"
+    host = "inpt"
+
+  [params.social]
+    github  = "https://github.com/red1intheocean"
+    email   = "redouane.meriche@inpt.ac.ma"
+
+[menu]
+  [[menu.main]]
+    name   = "projects"
+    url    = "/projects/"
+    weight = 1
+  [[menu.main]]
+    name   = "snippets"
+    url    = "/snippets/"
+    weight = 2
+  [[menu.main]]
+    name   = "logs"
+    url    = "/logs/"
+    weight = 3
+
+[outputs]
+  home    = ["HTML"]
+  section = ["HTML"]
+  page    = ["HTML"]
