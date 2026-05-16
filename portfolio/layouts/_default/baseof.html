@@ -22,14 +22,7 @@
       <li><a href="{{ .URL }}">{{ .Name }}</a></li>
       {{ end }}
     </ul>
-    <label class="nav-toggle" title="Toggle theme" aria-label="Toggle light/dark mode">
-      <span class="toggle-icon">◐</span>
-      <span class="toggle">
-        <input type="checkbox" id="themeToggle" />
-        <span class="toggle-track"></span>
-        <span class="toggle-thumb"></span>
-      </span>
-    </label>
+
   </nav>
 
   <main id="main">{{ block "main" . }}{{ end }}</main>
@@ -42,23 +35,7 @@
     </span>
   </footer>
 
-  {{/* ── Theme toggle ── */}}
-  <script>
-  (function () {
-    var toggle = document.getElementById('themeToggle');
-    var html   = document.documentElement;
-    var stored = localStorage.getItem('theme');
-    var sys    = window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
-    var theme  = stored || sys;
-    html.setAttribute('data-theme', theme);
-    toggle.checked = (theme === 'light');
-    toggle.addEventListener('change', function () {
-      var t = toggle.checked ? 'light' : 'dark';
-      html.setAttribute('data-theme', t);
-      localStorage.setItem('theme', t);
-    });
-  })();
-  </script>
+
 
   {{/* ── UI interactions ── */}}
   <script>
