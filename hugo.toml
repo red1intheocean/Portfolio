@@ -33,11 +33,6 @@ pygmentsCodeFences = true
     github  = "https://github.com/red1intheocean"
     email   = "redouane.meriche@inpt.ac.ma"
 
-  # Last.fm API key — injected via HUGO_PARAMS_LASTFM_API_KEY env var at build time
-  # Set it in GitHub repo → Settings → Secrets and variables → Actions → LASTFM_API_KEY
-  # For local dev: set env var HUGO_PARAMS_LASTFM_API_KEY=yourkey, or paste here temporarily
-  lastfm_api_key = ""
-
 [menu]
   [[menu.main]]
     name   = "projects"
