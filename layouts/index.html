@@ -45,7 +45,7 @@
         <div style="margin:0.6rem 0 0.2rem;color:var(--fg-4);">{</div>
         <div style="padding-left:1.5rem;">
           <div class="t-line"><span class="t-key">"name"</span><span class="t-punct">:</span>&nbsp;<span class="t-str">"Redouane Meriche"</span><span class="t-punct">,</span></div>
-          <div class="t-line"><span class="t-key">"institution"</span><span class="t-punct">:</span>&nbsp;<span class="t-str">"INPT Rabat — SESNUM"</span><span class="t-punct">,</span></div>
+          <div class="t-line"><span class="t-key">"institution"</span><span class="t-punct">:</span>&nbsp;<span class="t-str">"INPT Rabat / SESNUM"</span><span class="t-punct">,</span></div>
           <div class="t-line"><span class="t-key">"focus"</span><span class="t-punct">:</span>&nbsp;<span class="t-punct">[</span><span class="t-str">"Embedded C"</span><span class="t-punct">,</span> <span class="t-str">"STM32"</span><span class="t-punct">,</span> <span class="t-str">"IoT"</span><span class="t-punct">,</span> <span class="t-str">"Real-Time"</span><span class="t-punct">],</span></div>
           <div class="t-line"><span class="t-key">"status"</span><span class="t-punct">:</span>&nbsp;<span class="t-str">"actively building"</span></div>
         </div>
@@ -197,27 +197,84 @@
     <p class="section-label">off_duty</p>
     <div class="interests">
       <div class="interest">
-        <div class="interest-icon">🥋</div>
+        <div class="interest-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#5ac8fa" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="5" r="3"/><path d="M12 8v4"/><path d="M9 12l-3 6"/><path d="M15 12l3 6"/><path d="M9 16h6"/><path d="M7 20l2-4"/><path d="M17 20l-2-4"/></svg></div>
         <div class="interest-name">MMA / BJJ</div>
-        <div class="interest-desc">Ground game. Systematic pressure. Same mental model as debugging.</div>
+        <div class="interest-desc">Active training and sparring in mixed martial arts. The ground game demands systematic pressure and an iterative mental model to break down technique.</div>
       </div>
       <div class="interest">
-        <div class="interest-icon">🏎️</div>
-        <div class="interest-name">Automotive</div>
-        <div class="interest-desc">High-performance vehicle dynamics. Engines are embedded systems with more torque.</div>
+        <div class="interest-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#30d158" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="4" width="10" height="3" rx="1"/><rect x="9" y="17" width="6" height="3" rx="1"/><line x1="12" y1="7" x2="12" y2="17"/><line x1="8" y1="10" x2="16" y2="10"/><line x1="8" y1="14" x2="16" y2="14"/></svg></div>
+        <div class="interest-name">Lifting & Conditioning</div>
+        <div class="interest-desc">Structural strength training supporting a 6'1", 200lb frame. Focused on generating torque, building resilience, and optimizing body mechanics for performance.</div>
       </div>
       <div class="interest">
-        <div class="interest-icon">🌊</div>
-        <div class="interest-name">Exploration</div>
-        <div class="interest-desc">Finding signal in noise: RF spectra, open landscapes, both.</div>
+        <div class="interest-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#5ac8fa" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 16h20"/><path d="M4 16c0-1 1-2 2-2h12c1 0 2 1 2 2"/><circle cx="6" cy="18" r="2"/><circle cx="18" cy="18" r="2"/><path d="M7 14l2-4h6l2 4"/></svg></div>
+        <div class="interest-name">Skateboarding</div>
+        <div class="interest-desc">Drilling flatground tricks, kickflips, and drop-ins at the park. Continuous practice in refining movement mechanics and pushing through iterative failures.</div>
       </div>
       <div class="interest">
-        <div class="interest-icon">📡</div>
-        <div class="interest-name">Radio / RF</div>
-        <div class="interest-desc">SDR, antenna theory, the invisible physical layer.</div>
+        <div class="interest-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#30d158" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h2l2-4 3 8 3-6 2 4h2l2-2h2"/><circle cx="18" cy="12" r="0.5" fill="#30d158"/></svg></div>
+        <div class="interest-name">Music & Audio</div>
+        <div class="interest-desc">Atmospheric, high-energy soundscapes for focus. Heavily influenced by the driving soundtracks of NieR: Automata and Devil May Cry 5 while coding or training.</div>
       </div>
     </div>
   </div>
 </section>
+
+{{/* TOP ALBUMS WIDGET */}}
+<section class="section" id="top-albums">
+  <div class="container">
+    <p class="section-label">now_playing</p>
+
+    <div class="lastfm-widget" role="region" aria-label="Top albums from Last.fm">
+      <div class="lastfm-header">
+        <span class="lastfm-pulse" aria-hidden="true"></span>
+        <span class="lastfm-header-text">Top Albums · Last 12 Months</span>
+        <a href="https://www.last.fm/user/LongLiveRed1" class="lastfm-profile" target="_blank" rel="noopener">
+          LongLiveRed1 ↗
+        </a>
+      </div>
+      <div class="lastfm-list" id="lastfm-list">
+        <div class="lastfm-loading">fetching scrobbles<span class="lastfm-dots"></span></div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<script>
+(function () {
+  const container = document.getElementById('lastfm-list');
+  if (!container) return;
+
+  fetch('/api/lastfm')
+    .then(function (res) {
+      if (!res.ok) throw new Error('API error');
+      return res.json();
+    })
+    .then(function (data) {
+      if (!data.albums || data.albums.length === 0) {
+        container.innerHTML = '<div class="lastfm-empty">No data available.</div>';
+        return;
+      }
+
+      var html = '';
+      data.albums.forEach(function (album) {
+        html += '<a href="' + album.url + '" class="lastfm-row" target="_blank" rel="noopener">';
+        html += '  <span class="lastfm-rank">' + String(album.rank).padStart(2, '0') + '</span>';
+        html += '  <span class="lastfm-info">';
+        html += '    <span class="lastfm-album">' + album.name + '</span>';
+        html += '    <span class="lastfm-artist">' + album.artist + '</span>';
+        html += '  </span>';
+        html += '  <span class="lastfm-plays">' + album.playcount + ' plays</span>';
+        html += '</a>';
+      });
+
+      container.innerHTML = html;
+    })
+    .catch(function () {
+      container.innerHTML = '<div class="lastfm-empty">Could not load albums.</div>';
+    });
+})();
+</script>
 
 {{ end }}
