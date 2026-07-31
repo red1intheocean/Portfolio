@@ -738,10 +738,9 @@ a { color:inherit; text-decoration:none; }
 
 /* ============================================================
    LAST.FM TOP ALBUMS WIDGET
-   Glassmorphic / Terminal aesthetic
+   Glassmorphic / Terminal aesthetic — Card layout with covers
    ============================================================ */
 .lastfm-widget {
-  max-width: 640px;
   background: var(--glass-bg);
   border: 1px solid var(--glass-border);
   border-radius: var(--r-lg);
@@ -795,61 +794,106 @@ a { color:inherit; text-decoration:none; }
   color: var(--teal);
 }
 
-/* ── Album Rows ── */
-.lastfm-list {
+.lastfm-desc {
+  padding: 1rem 1.25rem 0;
+  font-size: 0.82rem;
+  color: var(--fg-4);
+  line-height: 1.5;
+  font-style: italic;
+}
+
+/* ── Album Grid ── */
+.lastfm-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1rem;
+  padding: 1.25rem;
+}
+
+.lastfm-card {
   display: flex;
   flex-direction: column;
-}
-
-.lastfm-row {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  padding: 0.8rem 1.25rem;
-  border-bottom: 1px solid var(--sep-s);
-  border-left: 2px solid transparent;
-  transition: all var(--t) var(--ease);
+  gap: 0.6rem;
   text-decoration: none;
   color: inherit;
+  border-radius: var(--r);
+  padding: 0.6rem;
+  transition: all var(--t) var(--ease);
+  border: 1px solid transparent;
 }
-.lastfm-row:last-child {
-  border-bottom: none;
-}
-.lastfm-row:hover {
+.lastfm-card:hover {
   background: rgba(90, 200, 250, 0.06);
-  border-left-color: var(--teal);
+  border-color: var(--glass-border);
+  transform: translateY(-3px);
 }
 
-.lastfm-rank {
+/* ── Cover art ── */
+.lastfm-cover-wrap {
+  position: relative;
+  aspect-ratio: 1;
+  border-radius: var(--r-sm);
+  overflow: hidden;
+  background: rgba(10, 15, 30, 0.8);
+}
+
+.lastfm-cover {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.3s var(--ease);
+}
+.lastfm-card:hover .lastfm-cover {
+  transform: scale(1.05);
+}
+
+.lastfm-cover--placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   font-family: var(--mono);
-  font-size: 0.75rem;
-  font-weight: 600;
+  font-size: 1.2rem;
+  font-weight: 700;
   color: var(--fg-4);
-  min-width: 1.6rem;
-  flex-shrink: 0;
 }
 
-.lastfm-info {
+.lastfm-rank-badge {
+  position: absolute;
+  top: 6px;
+  left: 6px;
+  font-family: var(--mono);
+  font-size: 0.6rem;
+  font-weight: 700;
+  color: #fff;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(4px);
+  padding: 0.15rem 0.4rem;
+  border-radius: var(--r-sm);
+  line-height: 1;
+}
+
+/* ── Card text info ── */
+.lastfm-card-info {
   display: flex;
   flex-direction: column;
   gap: 0.15rem;
-  flex: 1;
   min-width: 0;
 }
 
 .lastfm-album {
-  font-size: 0.88rem;
+  font-size: 0.78rem;
   font-weight: 500;
   color: var(--teal);
   letter-spacing: -0.01em;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  line-height: 1.3;
 }
 
 .lastfm-artist {
   font-family: var(--mono);
-  font-size: 0.72rem;
+  font-size: 0.65rem;
   font-weight: 400;
   color: var(--fg-4);
   white-space: nowrap;
@@ -859,16 +903,16 @@ a { color:inherit; text-decoration:none; }
 
 .lastfm-plays {
   font-family: var(--mono);
-  font-size: 0.68rem;
+  font-size: 0.6rem;
   font-weight: 500;
   color: var(--fg-4);
-  white-space: nowrap;
-  flex-shrink: 0;
+  opacity: 0.7;
 }
 
-/* ── Loading state ── */
+/* ── Loading / empty states ── */
 .lastfm-loading {
-  padding: 1.5rem 1.25rem;
+  grid-column: 1 / -1;
+  padding: 1.5rem 0;
   font-family: var(--mono);
   font-size: 0.8rem;
   color: var(--fg-4);
@@ -886,8 +930,23 @@ a { color:inherit; text-decoration:none; }
 }
 
 .lastfm-empty {
-  padding: 1.5rem 1.25rem;
+  grid-column: 1 / -1;
+  padding: 1.5rem 0;
   font-family: var(--mono);
   font-size: 0.8rem;
   color: var(--fg-4);
+}
+
+/* ── Responsive ── */
+@media (max-width: 720px) {
+  .lastfm-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 420px) {
+  .lastfm-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.75rem;
+    padding: 1rem;
+  }
 }

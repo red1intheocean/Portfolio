@@ -233,7 +233,8 @@
           LongLiveRed1 ↗
         </a>
       </div>
-      <div class="lastfm-list" id="lastfm-list">
+      <p class="lastfm-desc">What's been on rotation while writing firmware, debugging UART, and grinding on the mat.</p>
+      <div class="lastfm-grid" id="lastfm-list">
         <div class="lastfm-loading">fetching scrobbles<span class="lastfm-dots"></span></div>
       </div>
     </div>
@@ -265,13 +266,38 @@
 
       var html = '';
       albums.forEach(function (a, i) {
-        html += '<a href="' + a.url + '" class="lastfm-row" target="_blank" rel="noopener">';
-        html += '<span class="lastfm-rank">' + String(i + 1).padStart(2, '0') + '</span>';
-        html += '<span class="lastfm-info">';
+        var img = '';
+        if (a.image) {
+          for (var j = 0; j < a.image.length; j++) {
+            if (a.image[j].size === 'extralarge' && a.image[j]['#text']) {
+              img = a.image[j]['#text'];
+              break;
+            }
+          }
+          if (!img) {
+            for (var k = 0; k < a.image.length; k++) {
+              if (a.image[k].size === 'large' && a.image[k]['#text']) {
+                img = a.image[k]['#text'];
+                break;
+              }
+            }
+          }
+        }
+
+        html += '<a href="' + a.url + '" class="lastfm-card" target="_blank" rel="noopener">';
+        html += '<div class="lastfm-cover-wrap">';
+        if (img) {
+          html += '<img class="lastfm-cover" src="' + img + '" alt="' + a.name + ' cover" loading="lazy">';
+        } else {
+          html += '<div class="lastfm-cover lastfm-cover--placeholder"><span>' + String(i + 1).padStart(2, '0') + '</span></div>';
+        }
+        html += '<span class="lastfm-rank-badge">#' + (i + 1) + '</span>';
+        html += '</div>';
+        html += '<div class="lastfm-card-info">';
         html += '<span class="lastfm-album">' + a.name + '</span>';
         html += '<span class="lastfm-artist">' + (a.artist ? a.artist.name : 'Unknown') + '</span>';
-        html += '</span>';
         html += '<span class="lastfm-plays">' + a.playcount + ' plays</span>';
+        html += '</div>';
         html += '</a>';
       });
       container.innerHTML = html;
