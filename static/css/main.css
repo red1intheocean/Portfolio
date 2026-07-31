@@ -669,7 +669,7 @@ a { color:inherit; text-decoration:none; }
   transition:all var(--t) var(--ease);
 }
 .interest:hover { background:rgba(10,132,255,0.08); }
-.interest-icon { font-size:1.5rem; margin-bottom:0.75rem; }
+.interest-icon { font-size:1.8rem; margin-bottom:0.75rem; line-height:1; }
 .interest-name { font-size:0.9rem; font-weight:600; letter-spacing:-0.01em; color:var(--fg); margin-bottom:0.3rem; }
 .interest-desc { font-size:0.78rem; color:var(--fg-4); line-height:1.6; }
 

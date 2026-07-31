@@ -44,6 +44,7 @@ jobs:
           HUGO_CACHEDIR: ${{ runner.temp }}/hugo_cache
           HUGO_ENVIRONMENT: production
           TZ: Africa/Casablanca
+          HUGO_PARAMS_LASTFM_API_KEY: ${{ secrets.LASTFM_API_KEY }}
         run: |
           hugo \
             --gc \
