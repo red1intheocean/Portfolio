@@ -49,4 +49,6 @@ int16_t raw_z = (int16_t)(rx_buf[6] << 8 | rx_buf[5]);
 
 ## Demonstration
 
-📺 [Full demonstration on YouTube](https://youtu.be/NO5X-J4crtQ)
+<div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;border-radius:12px;margin:1.5rem 0;">
+  <iframe src="https://www.youtube.com/embed/NO5X-J4crtQ" style="position:absolute;top:0;left:0;width:100%;height:100%;border:0;" allow="accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture" allowfullscreen></iframe>
+</div>
