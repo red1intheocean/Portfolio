@@ -111,28 +111,58 @@
     <div class="explorer">
       <aside class="explorer-tree" aria-label="Project list">
         <div class="tree-header">Explorer</div>
-        <div class="tree-item is-active" data-target="proj-almidan" role="button" tabindex="0">
-          <span class="tree-icon">📱</span>al-midan.dart<span class="tree-ext">mobile</span>
+        <div class="tree-item is-active" data-target="proj-gyro" role="button" tabindex="0">
+          <span class="tree-icon">✈️</span>stm32-gyro-3d.c<span class="tree-ext">embedded</span>
+        </div>
+        <div class="tree-item" data-target="proj-facerecon" role="button" tabindex="0">
+          <span class="tree-icon">🔐</span>face-recon-bridge.py<span class="tree-ext">iot</span>
+        </div>
+        <div class="tree-item" data-target="proj-almidan" role="button" tabindex="0">
+          <span class="tree-icon">🏟️</span>al-midan.tsx<span class="tree-ext">full-stack</span>
         </div>
         <div class="tree-item" data-target="proj-agri" role="button" tabindex="0">
           <span class="tree-icon">🌱</span>agri-monitor.c<span class="tree-ext">iot</span>
         </div>
       </aside>
       <div class="explorer-pane" aria-live="polite">
-        <article class="proj is-active" id="proj-almidan">
-          <div class="proj-meta">dart · flutter · mobile</div>
-          <h2 class="proj-title">Al-Midan</h2>
-          <p class="proj-desc">Mobile application for coordinating team sports among Moroccan university students. Real-time match scheduling, campus field maps, and live player counts via Firestore.</p>
+        <article class="proj is-active" id="proj-gyro">
+          <div class="proj-meta">c · stm32 · spi · python · blender</div>
+          <h2 class="proj-title">STM32 Gyro 3D Plane Visualizer</h2>
+          <p class="proj-desc">Bare-metal SPI driver reads an L3GD20H gyroscope on STM32, streams orientation over UART, and a multi-threaded Python script animates a 3D aircraft in Blender in real time.</p>
           <div class="proj-tags">
-            <span class="tag">Flutter</span><span class="tag">Dart</span><span class="tag">Firebase</span><span class="tag">Riverpod</span><span class="tag">Android / iOS</span>
+            <span class="tag">C</span><span class="tag">STM32</span><span class="tag">SPI</span><span class="tag">Python</span><span class="tag">Blender</span><span class="tag">Embedded</span>
+          </div>
+          <div class="proj-links">
+            <a href="/projects/stm32-gyro-3d/" class="btn btn--primary">Read more</a>
+            <a href="https://github.com/red1intheocean/STM32-Gyro-3D-Plane-Visualizer" class="btn" target="_blank" rel="noopener">GitHub ↗</a>
+          </div>
+        </article>
+        <article class="proj" id="proj-facerecon">
+          <div class="proj-meta">python · aws · esp32 · flask · c++</div>
+          <h2 class="proj-title">FaceRecon Bridge</h2>
+          <p class="proj-desc">Real-time biometric access control: ESP32-CAM captures faces, Flask backend queries AWS Rekognition, and a servo unlocks the door on match. All events logged to SQLite.</p>
+          <div class="proj-tags">
+            <span class="tag">Python</span><span class="tag">AWS</span><span class="tag">ESP32</span><span class="tag">Flask</span><span class="tag">IoT</span><span class="tag">C++</span>
+          </div>
+          <div class="proj-links">
+            <a href="/projects/face-recon-bridge/" class="btn btn--primary">Read more</a>
+            <a href="https://github.com/red1intheocean/face-recon-bridge" class="btn" target="_blank" rel="noopener">GitHub ↗</a>
+          </div>
+        </article>
+        <article class="proj" id="proj-almidan">
+          <div class="proj-meta">typescript · next.js · tailwind · firebase</div>
+          <h2 class="proj-title">Al-Midan</h2>
+          <p class="proj-desc">Full-stack sports-matching platform connecting Moroccan university students for spontaneous team games. Real-time match scheduling, venue booking, and player trust scores.</p>
+          <div class="proj-tags">
+            <span class="tag">TypeScript</span><span class="tag">Next.js</span><span class="tag">Tailwind</span><span class="tag">Firebase</span><span class="tag">Full-Stack</span>
           </div>
           <div class="proj-links">
             <a href="/projects/al-midan/" class="btn btn--primary">Read more</a>
-            <a href="{{ $.Site.Params.social.github }}" class="btn" target="_blank" rel="noopener">GitHub ↗</a>
+            <a href="https://github.com/red1intheocean/al-midan-app" class="btn" target="_blank" rel="noopener">GitHub ↗</a>
           </div>
         </article>
         <article class="proj" id="proj-agri">
-          <div class="proj-meta">c · python · iot · stm32</div>
+          <div class="proj-meta">c · python · iot · stm32 · mqtt</div>
           <h2 class="proj-title">Agricultural Monitoring System</h2>
           <p class="proj-desc">Full-stack IoT pipeline: STM32 reads sensors over ADC and I2C, pushes data via MQTT, a Python backend writes to InfluxDB, and a live dashboard visualizes field conditions.</p>
           <div class="proj-tags">
@@ -140,7 +170,6 @@
           </div>
           <div class="proj-links">
             <a href="/projects/agri-monitor/" class="btn btn--primary">Read more</a>
-            <a href="{{ $.Site.Params.social.github }}" class="btn" target="_blank" rel="noopener">GitHub ↗</a>
           </div>
         </article>
       </div>

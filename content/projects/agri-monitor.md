@@ -5,7 +5,7 @@ description: "Full-stack IoT project with sensor simulation, embedded acquisitio
 tags: ["C", "Python", "IoT", "STM32", "MQTT", "Real-Time"]
 icon: "🌱"
 filetype: "c"
-github: "https://github.com/ENSIAS-MEH/projet-web-harvest-moon"
+github: ""
 hw_specs:
   - { key: "MCU",         value: "STM32F103C8T6" }
   - { key: "Clock",       value: "72 MHz" }
