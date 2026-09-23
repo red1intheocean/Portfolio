@@ -1,6 +1,7 @@
 ---
 title: "Harvest Moon"
 date: 2025-06-15
+slug: "harvest-moon"
 description: "Full-stack IoT project with sensor simulation, embedded acquisition, and real-time web dashboard."
 tags: ["C", "Python", "IoT", "STM32", "MQTT", "Real-Time"]
 icon: "🌱"
@@ -21,7 +22,7 @@ hw_specs:
 
 ## Overview
 
-A complete IoT pipeline for agricultural field monitoring, from raw sensor data on an
+A complete IoT pipeline for field monitoring, from raw sensor data on an
 STM32 microcontroller, through an MQTT broker, to a real-time web dashboard.
 
 The system monitors soil moisture, ambient temperature, and humidity, triggering alerts
@@ -69,7 +70,7 @@ HAL_StatusTypeDef read_sensors(SensorData *data) {
 
 ## IoT Widget: Live Readout
 
-{{< iot-widget title="Agri Node #1: Field A" >}}
+{{< iot-widget title="Harvest Moon Node #1: Field A" >}}
 Temperature   | 24.3 °C
 Humidity      | 61 %
 Soil Moisture | 42 %
