@@ -1,5 +1,5 @@
 ---
-title: "Agricultural Monitoring System"
+title: "Harvest Moon"
 date: 2025-06-15
 description: "Full-stack IoT project with sensor simulation, embedded acquisition, and real-time web dashboard."
 tags: ["C", "Python", "IoT", "STM32", "MQTT", "Real-Time"]
