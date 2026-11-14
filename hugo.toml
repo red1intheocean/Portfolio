@@ -22,7 +22,7 @@ pygmentsCodeFences = true
   avatar      = "/img/avatar.png"
 
   [params.github]
-    username = "redouane-meriche"
+    username = "red1intheocean"
     apiBase  = "https://api.github.com"
 
   [params.terminal]
@@ -30,8 +30,9 @@ pygmentsCodeFences = true
     host = "inpt"
 
   [params.social]
-    github  = "https://github.com/red1intheocean"
-    email   = "redouane.meriche@inpt.ac.ma"
+    github   = "https://github.com/red1intheocean"
+    linkedin = "https://www.linkedin.com/in/redouane-meriche-431818379/"
+    email    = "redouane.meriche@inpt.ac.ma"
 
 [menu]
   [[menu.main]]
