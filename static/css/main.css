@@ -806,6 +806,8 @@ a { color:inherit; text-decoration:none; }
 .lastfm-grid {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
+  grid-auto-rows: auto;
+  align-items: start;
   gap: 1rem;
   padding: 1.25rem;
 }
@@ -830,6 +832,7 @@ a { color:inherit; text-decoration:none; }
 /* ── Cover art ── */
 .lastfm-cover-wrap {
   position: relative;
+  width: 100%;
   aspect-ratio: 1;
   border-radius: var(--r-sm);
   overflow: hidden;
