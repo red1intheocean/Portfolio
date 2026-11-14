@@ -741,6 +741,11 @@ a { color:inherit; text-decoration:none; }
    Glassmorphic / Terminal aesthetic — Card layout with covers
    ============================================================ */
 
+/* Widen only this section's container so 5 covers at ~220px each fit */
+#top-albums .container {
+  max-width: 1280px;
+}
+
 .lastfm-widget {
   background: var(--glass-bg);
   border: 1px solid var(--glass-border);
@@ -820,7 +825,7 @@ a { color:inherit; text-decoration:none; }
   text-decoration: none;
   color: inherit;
   border-radius: var(--r);
-  padding: 0.6rem;
+  padding: 0.3rem;
   transition: all var(--t) var(--ease);
   border: 1px solid transparent;
 }
