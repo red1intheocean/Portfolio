@@ -838,7 +838,6 @@ a { color:inherit; text-decoration:none; }
   border-radius: var(--r-sm);
   overflow: hidden;
   background: rgba(10, 15, 30, 0.8);
-  min-height: 160px;
 }
 
 .lastfm-cover {
