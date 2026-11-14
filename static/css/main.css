@@ -741,11 +741,6 @@ a { color:inherit; text-decoration:none; }
    Glassmorphic / Terminal aesthetic — Card layout with covers
    ============================================================ */
 
-/* Break out of the 980px container so the widget can breathe */
-#top-albums .container {
-  max-width: 1400px;
-}
-
 .lastfm-widget {
   background: var(--glass-bg);
   border: 1px solid var(--glass-border);
@@ -762,12 +757,12 @@ a { color:inherit; text-decoration:none; }
 .lastfm-header {
   display: flex;
   align-items: center;
-  gap: 0.75rem;
-  padding: 1rem 2rem;
+  gap: 0.6rem;
+  padding: 0.75rem 1.25rem;
   background: rgba(10, 15, 30, 0.8);
   border-bottom: 1px solid var(--glass-border);
   font-family: var(--mono);
-  font-size: 0.75rem;
+  font-size: 0.65rem;
   font-weight: 700;
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -775,11 +770,11 @@ a { color:inherit; text-decoration:none; }
 }
 
 .lastfm-pulse {
-  width: 9px;
-  height: 9px;
+  width: 7px;
+  height: 7px;
   border-radius: 50%;
   background: var(--green);
-  box-shadow: 0 0 8px rgba(48, 209, 88, 0.6);
+  box-shadow: 0 0 6px rgba(48, 209, 88, 0.6);
   animation: pulse 2s ease-in-out infinite;
   flex-shrink: 0;
 }
@@ -789,7 +784,7 @@ a { color:inherit; text-decoration:none; }
 }
 
 .lastfm-profile {
-  font-size: 0.72rem;
+  font-size: 0.6rem;
   font-weight: 500;
   color: var(--fg-4);
   text-transform: none;
@@ -801,8 +796,8 @@ a { color:inherit; text-decoration:none; }
 }
 
 .lastfm-desc {
-  padding: 1.25rem 2rem 0;
-  font-size: 0.95rem;
+  padding: 1rem 1.25rem 0;
+  font-size: 0.82rem;
   color: var(--fg-4);
   line-height: 1.5;
   font-style: italic;
@@ -814,25 +809,25 @@ a { color:inherit; text-decoration:none; }
   grid-template-columns: repeat(5, 1fr);
   grid-auto-rows: auto;
   align-items: start;
-  gap: 1.5rem;
-  padding: 2rem;
+  gap: 1rem;
+  padding: 1.25rem;
 }
 
 .lastfm-card {
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;
+  gap: 0.6rem;
   text-decoration: none;
   color: inherit;
   border-radius: var(--r);
-  padding: 0.9rem;
+  padding: 0.6rem;
   transition: all var(--t) var(--ease);
   border: 1px solid transparent;
 }
 .lastfm-card:hover {
   background: rgba(90, 200, 250, 0.06);
   border-color: var(--glass-border);
-  transform: translateY(-4px);
+  transform: translateY(-3px);
 }
 
 /* ── Cover art ── */
@@ -840,9 +835,10 @@ a { color:inherit; text-decoration:none; }
   position: relative;
   width: 100%;
   aspect-ratio: 1;
-  border-radius: var(--r);
+  border-radius: var(--r-sm);
   overflow: hidden;
   background: rgba(10, 15, 30, 0.8);
+  min-height: 160px;
 }
 
 .lastfm-cover {
@@ -863,22 +859,22 @@ a { color:inherit; text-decoration:none; }
   align-items: center;
   justify-content: center;
   font-family: var(--mono);
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   font-weight: 700;
   color: var(--fg-4);
 }
 
 .lastfm-rank-badge {
   position: absolute;
-  top: 8px;
-  left: 8px;
+  top: 6px;
+  left: 6px;
   font-family: var(--mono);
-  font-size: 0.7rem;
+  font-size: 0.6rem;
   font-weight: 700;
   color: #fff;
   background: rgba(0, 0, 0, 0.7);
   backdrop-filter: blur(4px);
-  padding: 0.2rem 0.5rem;
+  padding: 0.15rem 0.4rem;
   border-radius: var(--r-sm);
   line-height: 1;
 }
@@ -887,14 +883,14 @@ a { color:inherit; text-decoration:none; }
 .lastfm-card-info {
   display: flex;
   flex-direction: column;
-  gap: 0.25rem;
+  gap: 0.15rem;
   min-width: 0;
   align-items: center;
   text-align: center;
 }
 
 .lastfm-album {
-  font-size: 0.9rem;
+  font-size: 0.78rem;
   font-weight: 500;
   color: var(--teal);
   letter-spacing: -0.01em;
@@ -910,7 +906,7 @@ a { color:inherit; text-decoration:none; }
 
 .lastfm-artist {
   font-family: var(--mono);
-  font-size: 0.75rem;
+  font-size: 0.65rem;
   font-weight: 400;
   color: var(--fg-4);
   white-space: nowrap;
@@ -921,7 +917,7 @@ a { color:inherit; text-decoration:none; }
 
 .lastfm-plays {
   font-family: var(--mono);
-  font-size: 0.7rem;
+  font-size: 0.6rem;
   font-weight: 500;
   color: var(--fg-4);
   opacity: 0.7;
@@ -931,9 +927,9 @@ a { color:inherit; text-decoration:none; }
 /* ── Loading / empty states ── */
 .lastfm-loading {
   grid-column: 1 / -1;
-  padding: 2rem 0;
+  padding: 1.5rem 0;
   font-family: var(--mono);
-  font-size: 0.9rem;
+  font-size: 0.8rem;
   color: var(--fg-4);
 }
 
@@ -950,9 +946,9 @@ a { color:inherit; text-decoration:none; }
 
 .lastfm-empty {
   grid-column: 1 / -1;
-  padding: 2rem 0;
+  padding: 1.5rem 0;
   font-family: var(--mono);
-  font-size: 0.9rem;
+  font-size: 0.8rem;
   color: var(--fg-4);
 }
 
